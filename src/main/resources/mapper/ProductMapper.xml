@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinguizi.mapper.ProductMapper">
+
+    <insert id="addProduct" parameterType="com.jinguizi.pojo.Product">
+        insert into product values(null,#{key},#{pid},#{name},#{channel},#{apkUrl},#{iosUrl},#{createTime})
+    </insert>
+    <insert id="addAllProduct">
+        insert into product values
+        <foreach collection="list" item="item" separator=",">
+            (null,
+            #{item.key},
+            #{item.pid},
+            #{item.name},
+            #{item.channel},
+            #{item.apkUrl},
+            #{item.iosUrl},
+            #{item.createTime})
+        </foreach>
+    </insert>
+    <update id="updateProduct">
+        update
+        product
+        set
+        key = #{key},
+        pid = #{pid},
+        name = #{name},
+        channel = #{channel},
+        apk_url = #{apkUrl},
+        ios_url = #{iosUrl},
+        craete_time = #{createTime}
+        where
+        id = #{id}
+    </update>
+    <delete id="deleteProductById">
+        delete from product where id = #{id}
+    </delete>
+    <select id="pageSearch" resultType="com.jinguizi.pojo.Product">
+        select
+        id,
+        pid,
+        `key`,
+        name,
+        channel,
+        apk_url apkUrl,
+        ios_url iosUrl,
+        create_time createTime
+        from product order by createTime desc
+    </select>
+    <select id="findProductByKey" resultType="com.jinguizi.pojo.Product">
+        select
+        id,
+        `key`,
+        pid,
+        name,
+        channel,
+        apk_url apkUrl,
+        ios_url iosUrl,
+        create_time createTime
+        from product
+        where key = #{key}
+    </select>
+    <select id="findProductByPid" resultType="com.jinguizi.pojo.Product">
+        select
+        id,
+        `key`,
+        pid,
+        name,
+        channel,
+        apk_url apkUrl,
+        ios_url iosUrl,
+        create_time createTime
+        from product
+        where pid like concat("%",#{pid},"%")
+    </select>
+</mapper>

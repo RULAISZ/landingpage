@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinguizi.mapper.BehaviorMapper">
+
+    <update id="updateBehavior" parameterType="com.jinguizi.pojo.Behavior">
+        update behavior
+        <set>
+            <if test="templateId!=null">
+                template_id = #{templateId},
+            </if>
+            <if test="loadTime!=null">
+                load_time = #{loadTime},
+            </if>
+            <if test="isScroll!=null">
+                is_scroll = #{isScroll},
+            </if>
+            <if test="isClickBanner!=null">
+                is_click_banner = #{isClickBanner},
+            </if>
+            <if test="isClickRedpack!=null">
+                is_click_redpack = #{isClickRedpack},
+            </if>
+            <if test="isClickRedpackClose!=null">
+                is_click_redpack_close = #{isClickRedpackClose},
+            </if>
+            <if test="isClickEggs!=null">
+                is_click_eggs = #{isClickEggs},
+            </if>
+            <if test="triggerEggNum!=null">
+                trigger_egg_num = #{triggerEggNum},
+            </if>
+            <if test="isClickEggsClose!=null">
+                is_click_eggs_close = #{isClickEggsClose},
+            </if>
+            <if test="isClickEggsRedpack!=null">
+                is_click_eggs_redpack = #{isClickEggsRedpack},
+            </if>
+            <if test="isClickEggsRedpackClose!=null">
+                is_click_eggs_redpack_close = #{isClickEggsRedpackClose},
+            </if>
+            <if test="isClickTurn!=null">
+                is_click_turn = #{isClickTurn},
+            </if>
+            <if test="triggerTurnNum!=null">
+                trigger_turn_num = #{triggerTurnNum},
+            </if>
+            <if test="isClickTurnClose!=null">
+                is_click_turn_close = #{isClickTurnClose},
+            </if>
+            <if test="isClickTurnGift!=null">
+                is_click_turn_gift = #{isClickTurnGift},
+            </if>
+            <if test="isClickTurnGiftClose!=null">
+                is_click_turn_gift_close = #{isClickTurnGiftClose},
+            </if>
+            <if test="isClickPrimaryDownload!=null">
+                is_click_primary_download = #{isClickPrimaryDownload},
+            </if>
+            <if test="startToEndTime!=null">
+                start_to_end_time = #{startToEndTime},
+            </if>
+        </set>
+        where
+        fuid = #{fuid}
+    </update>
+    <insert id="insertBehavior" parameterType="com.jinguizi.pojo.Behavior">
+        insert into behavior values(
+        null,
+        #{fuid},
+        #{productId},
+        #{templateId},
+        #{loadTime},
+        #{isScroll},
+        #{isClickBanner},
+        #{isClickRedpack},
+        #{isClickRedpackClose},
+        #{isClickEggs},
+        #{triggerEggNum},
+        #{isClickEggsClose},
+        #{isClickEggsRedpack},
+        #{isClickEggsRedpackClose},
+        #{isClickTurn},
+        #{triggerTurnNum},
+        #{isClickTurnClose},
+        #{isClickTurnGift},
+        #{isClickTurnGiftClose},
+        #{isClickPrimaryDownload},
+        #{startToEndTime},
+        #{inmarsatSerialNumber},
+        #{mobileType},
+        #{createTime}
+        )
+    </insert>
+    <select id="findBehaviorByFuid" resultType="com.jinguizi.pojo.Behavior">
+        select
+        id,
+        fuid,
+        product_id productId,
+        template_id templateId,
+        load_time loadTime,
+        is_scroll isScroll,
+        is_click_banner isClickBanner,
+        is_click_redpack isClickRedpack,
+        is_click_redpack_close isClickRedpackClose,
+        is_click_eggs isClickEggs,
+        trigger_egg_num triggerEggNum,
+        is_click_eggs_close isClickEggsClose,
+        is_click_eggs_redpack isClickEggsRedpack,
+        is_click_eggs_redpack_close isClickEggsRedpackClose,
+        is_click_turn isClickTurn,
+        trigger_turn_num triggerTurnNum,
+        is_click_turn_close isClickTurnClose,
+        is_click_turn_gift isClickTurnGift,
+        is_click_turn_gift_close isClickTurnGiftClose,
+        is_click_primary_download isClickPrimaryDownload,
+        start_to_end_time startToEndTime,
+        inmarsat_serial_number inmarsatSerialNumber,
+        moblie_type moblieType,
+        create_time createTime
+        from behavior
+        where fuid = #{fuid}
+    </select>
+    <select id="findBehaviorCount" resultType="java.lang.Integer">
+        select count(1) from behavior where fuid = #{fuid}
+    </select>
+</mapper>
