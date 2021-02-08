@@ -40,9 +40,5 @@ logging:
     root: info
   config: classpath:logback-spring.xml
 
-#七牛云
-qiniuyun:
-  accessKey: 1YqxOdZIYrAB-go9zr1idsCJZFk7haW0YtKOMs1N
-  secretKey: KZqY56TMCOwfj-CpT1KGPGmEPhsl4n-g8IEXnsUS
-  bucket: landingpage-jgz
-  url: https://image.w8xw.com
+filepath: D://image
+host: https://xxx.xxx.com
