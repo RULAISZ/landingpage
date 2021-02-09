@@ -31,7 +31,7 @@ public class BehaviorController {
     @PostMapping("saveBehavior")
     public Result saveBehavior(@RequestBody Behavior behavior){
         System.out.println(behavior);
-        if (behavior==null){
+        if (behavior==null||"0".equals(behavior.getFuid())){
             return Result.failure(ResultCode.ERROR_PARAMETER);
         }
         try {

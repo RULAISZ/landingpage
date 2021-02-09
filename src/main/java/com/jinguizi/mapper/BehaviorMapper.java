@@ -3,6 +3,8 @@ package com.jinguizi.mapper;
 import com.jinguizi.pojo.Behavior;
 import org.apache.ibatis.annotations.Mapper;
 
+import java.util.List;
+
 /**
  * @Title: landingpage
  * @description:
@@ -18,4 +20,7 @@ public interface BehaviorMapper {
     Behavior findBehaviorByFuid(String fuid);
 
     Integer findBehaviorCount(Behavior behavior);
+
+    List<Behavior> findAllBehavior();
+
 }

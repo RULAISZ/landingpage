@@ -125,4 +125,32 @@
     <select id="findBehaviorCount" resultType="java.lang.Integer">
         select count(1) from behavior where fuid = #{fuid}
     </select>
+    <select id="findAllBehavior" resultType="com.jinguizi.pojo.Behavior">
+        select
+        id,
+        fuid,
+        product_id productId,
+        template_id templateId,
+        load_time loadTime,
+        is_scroll isScroll,
+        is_click_banner isClickBanner,
+        is_click_redpack isClickRedpack,
+        is_click_redpack_close isClickRedpackClose,
+        is_click_eggs isClickEggs,
+        trigger_egg_num triggerEggNum,
+        is_click_eggs_close isClickEggsClose,
+        is_click_eggs_redpack isClickEggsRedpack,
+        is_click_eggs_redpack_close isClickEggsRedpackClose,
+        is_click_turn isClickTurn,
+        trigger_turn_num triggerTurnNum,
+        is_click_turn_close isClickTurnClose,
+        is_click_turn_gift isClickTurnGift,
+        is_click_turn_gift_close isClickTurnGiftClose,
+        is_click_primary_download isClickPrimaryDownload,
+        start_to_end_time startToEndTime,
+        inmarsat_serial_number inmarsatSerialNumber,
+        moblie_type moblieType,
+        create_time createTime
+        from behavior
+    </select>
 </mapper>

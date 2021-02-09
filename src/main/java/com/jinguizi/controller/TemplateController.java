@@ -1,11 +1,13 @@
 package com.jinguizi.controller;
 
+import com.jinguizi.dto.DelTemplateDto;
 import com.jinguizi.dto.SearchDto;
 import com.jinguizi.dto.TemplateDto;
 import com.jinguizi.mapper.ProductMapper;
 import com.jinguizi.pojo.Product;
 import com.jinguizi.pojo.Result;
 import com.jinguizi.pojo.ResultCode;
+import com.jinguizi.pojo.Template;
 import com.jinguizi.service.TemplateService;
 import com.jinguizi.utils.QiniuUtils;
 import org.apache.commons.lang.StringUtils;
@@ -113,6 +115,31 @@ public class TemplateController {
         //返回数据
         return resultList;
 
+    }
+
+    @PostMapping("findAllTemplate")
+    public Result findAllTemplate(){
+        try {
+            List<Template> list = templateService.findAllTemplate();
+            return Result.success(list);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.failure(ResultCode.FAIL);
+        }
+    }
+
+    @PostMapping("deleteTemplate")
+    public Result deleteTemplate(@RequestBody DelTemplateDto dto){
+        try {
+            if (dto==null||dto.getId()==null||dto.getId()<0){
+                return Result.failure(ResultCode.ERROR_PARAMETER);
+            }
+            templateService.deleteTemplateById(dto.getId());
+            return Result.success();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.failure(ResultCode.FAIL);
+        }
     }
 
 }

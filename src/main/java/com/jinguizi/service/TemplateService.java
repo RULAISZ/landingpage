@@ -64,4 +64,13 @@ public class TemplateService {
         List<Product> list = productMapper.findProductByPid(dto.getPid());
         return list;
     }
+
+    public List<Template> findAllTemplate() {
+        List<Template> list = templateMapper.findAllTemplate();
+        return list;
+    }
+
+    public void deleteTemplateById(Integer id) {
+        templateMapper.deleteTemplateById(id);
+    }
 }
