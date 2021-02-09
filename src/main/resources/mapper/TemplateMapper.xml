@@ -7,4 +7,17 @@
     <insert id="addTemplate">
         insert into template values(null,#{name},#{content},#{pid},#{createTime})
     </insert>
+    <delete id="deleteTemplateById">
+        delete from template where id = #{id}
+    </delete>
+    <select id="findAllTemplate" resultType="com.jinguizi.pojo.Template">
+        select
+        id,
+        name,
+        content,
+        pid,
+        create_time createTime
+        from
+        template
+    </select>
 </mapper>
