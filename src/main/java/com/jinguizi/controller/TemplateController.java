@@ -144,4 +144,21 @@ public class TemplateController {
             return Result.failure(ResultCode.FAIL);
         }
     }
+
+    @PostMapping("updateTemplate")
+    public Result updateTemplate(@RequestBody Template template){
+        try {
+            if (template==null||template.getId()==null||template.getId()<0){
+                return Result.failure(ResultCode.ERROR_PARAMETER);
+            }
+            if (!StringUtils.isBlank(template.getContent())){
+                templateService.updateTemplate(template);
+            }
+            return Result.success();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.failure(ResultCode.FAIL);
+        }
+    }
+
 }

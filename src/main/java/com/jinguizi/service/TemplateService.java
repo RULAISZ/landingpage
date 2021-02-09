@@ -73,4 +73,8 @@ public class TemplateService {
     public void deleteTemplateById(Integer id) {
         templateMapper.deleteTemplateById(id);
     }
+
+    public void updateTemplate(Template template) {
+        templateMapper.updateTemplate(template);
+    }
 }
