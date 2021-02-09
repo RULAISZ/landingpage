@@ -29,7 +29,7 @@ public class ProductService {
 
     public void addProduct(Product product) {
 
-        product.setKey(MD5Util.encodeByMd5(product.getChannel()));
+        product.setKey(MD5Util.encodeByMd5(product.getPid()+product.getChannel()));
         SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
         String createTime = format.format(new Date());
         product.setCreateTime(createTime);
@@ -53,7 +53,7 @@ public class ProductService {
 
     public void batchAddProduct(List<Product> list) {
         for (Product product : list) {
-            product.setKey(MD5Util.encodeByMd5(product.getChannel()));
+            product.setKey(MD5Util.encodeByMd5(product.getPid()+product.getChannel()));
             SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
             String createTime = format.format(new Date());
             product.setCreateTime(createTime);
