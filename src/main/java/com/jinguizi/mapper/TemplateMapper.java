@@ -13,4 +13,6 @@ public interface TemplateMapper {
     List<Template> findAllTemplate();
 
     void deleteTemplateById(Integer id);
+
+    void updateTemplate(Template template);
 }

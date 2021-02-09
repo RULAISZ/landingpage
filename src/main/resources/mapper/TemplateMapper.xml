@@ -7,6 +7,14 @@
     <insert id="addTemplate">
         insert into template values(null,#{name},#{content},#{pid},#{createTime})
     </insert>
+    <update id="updateTemplate">
+        update
+        template
+        set
+        content = #{content}
+        where
+        id = #{id}
+    </update>
     <delete id="deleteTemplateById">
         delete
         from
@@ -23,5 +31,6 @@
         create_time createTime
         from
         template
+        order by createTime desc
     </select>
 </mapper>
