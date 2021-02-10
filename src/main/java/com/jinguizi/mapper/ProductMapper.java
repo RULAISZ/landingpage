@@ -21,4 +21,6 @@ public interface ProductMapper {
     List<Product> findProductByPid(String pid);
 
     void addAllProduct(List<Product> list);
+
+    Product findProductById(Integer productId);
 }

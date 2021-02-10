@@ -58,6 +58,9 @@
             <if test="isClickPrimaryDownload!=null">
                 is_click_primary_download = #{isClickPrimaryDownload},
             </if>
+            <if test="isDownloadApk!=null">
+                is_download_apk = #{isDownloadApk},
+            </if>
             <if test="startToEndTime!=null">
                 start_to_end_time = #{startToEndTime},
             </if>
@@ -87,6 +90,7 @@
         #{isClickTurnGift},
         #{isClickTurnGiftClose},
         #{isClickPrimaryDownload},
+        #{isDownloadApk},
         #{startToEndTime},
         #{inmarsatSerialNumber},
         #{mobileType},
@@ -115,6 +119,7 @@
         is_click_turn_gift isClickTurnGift,
         is_click_turn_gift_close isClickTurnGiftClose,
         is_click_primary_download isClickPrimaryDownload,
+        is_download_apk isDownloadApk,
         start_to_end_time startToEndTime,
         inmarsat_serial_number inmarsatSerialNumber,
         moblie_type moblieType,
@@ -147,6 +152,7 @@
         is_click_turn_gift isClickTurnGift,
         is_click_turn_gift_close isClickTurnGiftClose,
         is_click_primary_download isClickPrimaryDownload,
+        is_download_apk isDownloadApk,
         start_to_end_time startToEndTime,
         inmarsat_serial_number inmarsatSerialNumber,
         moblie_type moblieType,

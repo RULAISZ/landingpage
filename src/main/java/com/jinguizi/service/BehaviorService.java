@@ -44,6 +44,7 @@ public class BehaviorService {
         behavior.setTriggerTurnNum(0);
         behavior.setIsClickEggsClose(0);
         behavior.setIsClickTurnClose(0);
+        behavior.setIsDownloadApk(0);
         if (behavior.getInmarsatSerialNumber()==null||behavior.getInmarsatSerialNumber().length()==0){
             behavior.setInmarsatSerialNumber("");
         }

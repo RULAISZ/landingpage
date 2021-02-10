@@ -3,7 +3,6 @@ package com.jinguizi.controller;
 import com.jinguizi.dto.RandomDto;
 import com.jinguizi.pojo.Result;
 import com.jinguizi.pojo.ResultCode;
-import com.jinguizi.pojo.Template;
 import com.jinguizi.service.LoadingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.util.StringUtils;
@@ -11,6 +10,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.Map;
 
 /**
  * @Title: landingpage
@@ -27,16 +28,16 @@ public class LoadingController {
 
     /**
      * 随机查找一个落地页数据
-     * @param randomDto
+     * @param dto
      * @return
      */
     @PostMapping("randomLoading")
-    public Result randomLoading(@RequestBody RandomDto randomDto){
-        if (randomDto.getKey()==null|| StringUtils.isEmpty(randomDto.getKey())){
+    public Result randomLoading(@RequestBody RandomDto dto){
+        if (dto.getKey()==null|| StringUtils.isEmpty(dto.getKey())){
             return Result.failure(ResultCode.ERROR_PARAMETER);
         }
         try {
-            Template result = loadingService.randomLoading(randomDto.getKey());
+            Map<String,Object> result = loadingService.randomLoading(dto);
             return Result.success(result);
         } catch (Exception e) {
             e.printStackTrace();

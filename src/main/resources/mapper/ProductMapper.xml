@@ -73,6 +73,20 @@
         ios_url iosUrl,
         create_time createTime
         from product
-        where pid like concat("%",#{pid},"%")
+        where pid = #{pid}
+    </select>
+    <select id="findProductById" resultType="com.jinguizi.pojo.Product">
+        select
+        id,
+        `key`,
+        pid,
+        name,
+        channel,
+        apk_url apkUrl,
+        ios_url iosUrl,
+        create_time createTime
+        from
+        product
+        where id = #{id}
     </select>
 </mapper>

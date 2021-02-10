@@ -30,6 +30,7 @@ public class Behavior implements Serializable {
     private Integer isClickTurnGift;
     private Integer isClickTurnGiftClose;
     private Integer isClickPrimaryDownload;
+    private Integer isDownloadApk;
     private Long startToEndTime;
     private String inmarsatSerialNumber;
     private String mobileType;
@@ -58,6 +59,7 @@ public class Behavior implements Serializable {
                 ", isClickTurnGift=" + isClickTurnGift +
                 ", isClickTurnGiftClose=" + isClickTurnGiftClose +
                 ", isClickPrimaryDownload=" + isClickPrimaryDownload +
+                ", isDownloadApk=" + isDownloadApk +
                 ", startToEndTime=" + startToEndTime +
                 ", inmarsatSerialNumber='" + inmarsatSerialNumber + '\'' +
                 ", mobileType='" + mobileType + '\'' +
@@ -90,6 +92,7 @@ public class Behavior implements Serializable {
                 Objects.equals(isClickTurnGift, behavior.isClickTurnGift) &&
                 Objects.equals(isClickTurnGiftClose, behavior.isClickTurnGiftClose) &&
                 Objects.equals(isClickPrimaryDownload, behavior.isClickPrimaryDownload) &&
+                Objects.equals(isDownloadApk, behavior.isDownloadApk) &&
                 Objects.equals(startToEndTime, behavior.startToEndTime) &&
                 Objects.equals(inmarsatSerialNumber, behavior.inmarsatSerialNumber) &&
                 Objects.equals(mobileType, behavior.mobileType) &&
@@ -98,7 +101,15 @@ public class Behavior implements Serializable {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, fuid, productId, templateId, LoadTime, isScroll, isClickBanner, isClickRedpack, isClickRedpackClose, isClickEggs, triggerEggNum, isClickEggsClose, isClickEggsRedpack, isClickEggsRedpackClose, isClickTurn, triggerTurnNum, isClickTurnClose, isClickTurnGift, isClickTurnGiftClose, isClickPrimaryDownload, startToEndTime, inmarsatSerialNumber, mobileType, CreateTime);
+        return Objects.hash(id, fuid, productId, templateId, LoadTime, isScroll, isClickBanner, isClickRedpack, isClickRedpackClose, isClickEggs, triggerEggNum, isClickEggsClose, isClickEggsRedpack, isClickEggsRedpackClose, isClickTurn, triggerTurnNum, isClickTurnClose, isClickTurnGift, isClickTurnGiftClose, isClickPrimaryDownload, isDownloadApk, startToEndTime, inmarsatSerialNumber, mobileType, CreateTime);
+    }
+
+    public Integer getIsDownloadApk() {
+        return isDownloadApk;
+    }
+
+    public void setIsDownloadApk(Integer isDownloadApk) {
+        this.isDownloadApk = isDownloadApk;
     }
 
     public Integer getIsClickEggsClose() {
