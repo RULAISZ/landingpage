@@ -9,14 +9,16 @@ import com.jinguizi.pojo.Result;
 import com.jinguizi.pojo.ResultCode;
 import com.jinguizi.pojo.Template;
 import com.jinguizi.service.TemplateService;
-import com.jinguizi.utils.QiniuUtils;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * @Title: landingpage
@@ -31,6 +33,7 @@ public class TemplateController {
     @Autowired
     private TemplateService templateService;
 
+
     /**
      * 图片上传
      * @param imgFile
@@ -39,7 +42,7 @@ public class TemplateController {
      */
     @PostMapping("upload")
     public Result upload(@RequestParam("img_file") MultipartFile imgFile) throws IOException {
-        try {
+        /*try {
             //获取原始文件名称
             String filename = imgFile.getOriginalFilename();
             //进行拼接
@@ -53,7 +56,19 @@ public class TemplateController {
         } catch (IOException e) {
             e.printStackTrace();
             return Result.failure(ResultCode.FAIL);
-        }
+        }*/
+        /*try {
+            //获取原始文件名称
+            String filename = imgFile.getOriginalFilename();
+            //进行拼接
+            filename = UUID.randomUUID().toString().replace("-","") + filename.substring(filename.lastIndexOf("."));
+            FileUtil.approvalFile(imgFile, filename, filepath);
+            return Result.success(host+"/"+filename);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.failure(ResultCode.FAIL);
+        }*/
+        return null;
     }
 
     /**
