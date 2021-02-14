@@ -9,16 +9,15 @@ import com.jinguizi.pojo.Result;
 import com.jinguizi.pojo.ResultCode;
 import com.jinguizi.pojo.Template;
 import com.jinguizi.service.TemplateService;
+import com.jinguizi.utils.FileUtil;
 import org.apache.commons.lang.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * @Title: landingpage
@@ -32,6 +31,12 @@ public class TemplateController {
 
     @Autowired
     private TemplateService templateService;
+
+    @Value("${filepath}")
+    private String filepath;
+
+    @Value("${host}")
+    private String host;
 
 
     /**
@@ -57,7 +62,7 @@ public class TemplateController {
             e.printStackTrace();
             return Result.failure(ResultCode.FAIL);
         }*/
-        /*try {
+        try {
             //获取原始文件名称
             String filename = imgFile.getOriginalFilename();
             //进行拼接
@@ -67,8 +72,7 @@ public class TemplateController {
         } catch (Exception e) {
             e.printStackTrace();
             return Result.failure(ResultCode.FAIL);
-        }*/
-        return null;
+        }
     }
 
     /**
