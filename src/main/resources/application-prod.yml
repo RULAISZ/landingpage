@@ -35,5 +35,5 @@ logging:
 #  bucket: landingpage-jgz
 #  url: https://image.w8xw.com
 
-filepath: D://image
-host: https://xxx.xxx.com
+filepath: /data/images
+host: https://res.w8xw.com/images
