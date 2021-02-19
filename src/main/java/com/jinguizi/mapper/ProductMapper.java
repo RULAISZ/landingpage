@@ -5,6 +5,7 @@ import com.jinguizi.pojo.Product;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
+import java.util.Map;
 
 @Mapper
 public interface ProductMapper {
@@ -23,4 +24,7 @@ public interface ProductMapper {
     void addAllProduct(List<Product> list);
 
     Product findProductById(Integer productId);
+
+    List<Map<String, Object>> findAllPid();
+
 }

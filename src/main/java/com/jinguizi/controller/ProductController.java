@@ -4,6 +4,7 @@ import cn.hutool.core.util.CharsetUtil;
 import com.github.pagehelper.PageInfo;
 import com.jinguizi.dto.ProductDelDto;
 import com.jinguizi.dto.ProductDto;
+import com.jinguizi.dto.ProductPidDto;
 import com.jinguizi.pojo.Product;
 import com.jinguizi.pojo.Result;
 import com.jinguizi.pojo.ResultCode;
@@ -17,6 +18,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.InputStreamReader;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Title: landingpage
@@ -135,6 +137,50 @@ public class ProductController {
             }
             productService.deleteProductById(dto.getId());
             return Result.success();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.failure(ResultCode.FAIL);
+        }
+    }
+
+    /**
+     * 查询所有pid
+     * @return
+     */
+    @PostMapping("findAllPid")
+    public Result findAllPid(@RequestBody ProductDto dto){
+        try {
+            if (dto==null){
+                return Result.failure(ResultCode.FAIL);
+            }
+            if (dto.getPageNum()==null||dto.getPageNum()<0){
+                dto.setPageNum(1);
+            }
+            if (dto.getPageSize()==null||dto.getPageSize()<0){
+                dto.setPageSize(50);
+            }
+            PageInfo<Map<String, Object>> info = productService.findAllPid(dto);
+            return Result.success(info);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return Result.failure(ResultCode.FAIL);
+        }
+    }
+
+    /**
+     * 根据pid查询product
+     * @param dto
+     * @return
+     */
+    @PostMapping("findProductByPid")
+    public Result findProductByPid(@RequestBody ProductPidDto dto){
+        try {
+            if (dto.getPid()==null) {
+                return Result.failure(ResultCode.ERROR_PARAMETER);
+            }
+
+            List<Product> list = productService.findProductByPid(dto.getPid());
+            return Result.success(list);
         } catch (Exception e) {
             e.printStackTrace();
             return Result.failure(ResultCode.FAIL);

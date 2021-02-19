@@ -89,4 +89,7 @@
         product
         where id = #{id}
     </select>
+    <select id="findAllPid" resultType="java.util.Map">
+        select pid,`name`,DATE_FORMAT(create_time,'%Y-%m-%d') createTime from product group by pid,`name`,create_time ORDER BY createTime desc
+    </select>
 </mapper>

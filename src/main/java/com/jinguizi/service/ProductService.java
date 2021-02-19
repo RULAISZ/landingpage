@@ -13,6 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 /**
  * @Title: landingpage
@@ -59,5 +60,17 @@ public class ProductService {
             product.setCreateTime(createTime);
         }
         productMapper.addAllProduct(list);
+    }
+
+    public PageInfo<Map<String, Object>> findAllPid(ProductDto dto) {
+        PageHelper.startPage(dto.getPageNum(),dto.getPageSize());
+        List<Map<String,Object>> list = productMapper.findAllPid();
+        PageInfo<Map<String, Object>> info = new PageInfo<>(list);
+        return info;
+    }
+
+    public List<Product> findProductByPid(String pid) {
+        List<Product> list = productMapper.findProductByPid(pid);
+        return list;
     }
 }

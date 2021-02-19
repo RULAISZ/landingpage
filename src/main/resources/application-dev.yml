@@ -3,7 +3,7 @@ spring:
     name: landingpage
   datasource:
     #192.168.124.3:3316
-    url: jdbc:mysql://192.168.124.3:3316/jinguizi?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&&serverTimezone=Hongkong
+    url: jdbc:mysql://192.168.124.40:3306/jinguizi?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&&serverTimezone=Hongkong
     #url: jdbc:mysql://localhost:3306/jinguizi?useUnicode=true&characterEncoding=utf8&characterSetResults=utf8&useSSL=false&&serverTimezone=Hongkong
     username: root
     password: 123456
@@ -47,5 +47,5 @@ logging:
 #  bucket: landingpage-jgz
 #  url: https://image.w8xw.com
 
-filepath: /data/images
+filepath: D:\image
 host: https://res.w8xw.com/images
